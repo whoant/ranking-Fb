@@ -1,0 +1,219 @@
+body {
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	margin: 0px;
+	width: 375px;
+	height: 812px;
+}
+
+.header {
+
+	width: 375px;
+	height: 812px;
+	background-image: linear-gradient(#F6E1E8, #C53E6C, #615A9E);
+	display: flex;
+	flex-direction: column;
+
+}
+
+.profile {
+	width: 375;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	margin: 4px 3px 0px 3px;
+}
+
+.profile .coverImage {
+
+	width: 368px;
+	height: 192px;
+	/*border: 1px solid #FFF;*/
+	
+	background-position: center;
+	background-size: cover;
+}
+
+.profile .avatar {
+	height: 105px;
+	width: 105px;
+	border-radius: 50%;
+	position: absolute;
+	background-position: center;
+	background-size: cover;
+	top: 143px;
+	left: 135px;
+}
+
+.profile .cover-avt {
+	height: 110px;
+	width: 110px;
+	border-radius: 50%;
+	position: absolute;
+	background-color: #FFFFFF;
+	top: 140.33px;
+	left: 132.5px;
+}
+
+.profile .background {
+	height: 108px;
+	width: 368px;
+	background-color: #FFFFFF;
+	display: flex;
+}
+
+.profile .icon-user {
+	width: 36.24px;
+	height: 30.18px;
+	background-size: 36.24px 30.18px;
+	position: absolute;
+	top: 254px;
+	left: 34px;
+}
+
+.profile .name {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	
+}
+
+.profile .name span {
+	padding-top: 59px;
+	font-size: 25px;
+}
+
+.title-slogan {
+	width: 100%;
+	height: 45px;
+	display: flex;
+	font-size: 18px;
+
+}
+
+.title-slogan .cover {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.title-slogan .logo-slogan {
+	width: 61.03px;
+	height: 35.09px;
+	background-size: 61.03px 35.09px;
+	background-image: url(./images/magnifying-glass.svg);
+	/*background-color: #534178;*/
+}
+
+.ranking {
+	width: 368px;
+	height: 437px;
+	background-color: #FFFFFF;
+	margin: 4px 3px 0px 3px;
+}
+
+.ranking {
+	width: 368px;
+	height: 437px;
+	background-color: #FFFFFF;
+	margin: 4px 3px 0px 3px;
+}
+
+
+.ranking .info {
+	width: 357.83px;
+	height: 40px;
+	display: flex;
+	margin: 20px 8px;
+}
+
+.ranking .info .img-order {
+	width: 40px;
+	background-size: 40px 40px;
+	margin-right: 4.25px;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.ranking .info .img-order span {
+
+	font-size: 28px;
+	height: 37px;
+	width: 24px;
+	/*text-align: center;*/
+}
+
+.ranking .info .avt {
+	width: 40px;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	margin-right: 5.91px;
+}
+
+.ranking .info .data-user {
+	width: 282px;
+	background-color: #DFDFDF;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.ranking .info .data-user .name {
+	width: 170px;
+	margin: 0px 5px;
+	font-size: 13px;
+}
+
+.ranking .info .data-user .interactive {
+	width: 85.25px;
+	height: 14px;
+}
+
+.ranking .info .data-user .interactive {
+	width: 85.25px;
+	height: 14px;
+	display: flex;
+}
+
+.ranking .info .data-user .interactive .icon {
+	/*flex-grow: 1;*/
+	width: 14px;
+	background-size: 14px 14px;
+	margin-right: 4px;
+}
+
+.ranking .info .data-user .interactive .like {
+	background-image: url(./images/like.svg);
+}
+
+.ranking .info .data-user .interactive .cmt {
+	background-image: url(./images/chat.svg);
+}
+
+.ranking .info .data-user .interactive .count {
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.contact {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	
+}
+
+.contact .icon-facebook {
+	width: 17px;
+	height: 12px;
+	background-image: url(./images/facebook.svg);
+	background-size: 17px 12px;
+}
+.contact .author span {
+	font-size: 13px;
+	color: #F2F5F6;
+}
