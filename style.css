@@ -3,8 +3,10 @@
 	font-weight: bold;
 	font-family: Arial, sans-serif;
 	width: 375px;
-	height: 692px;
+	height: 664px;
+	/*border-radius: 10px;*/
 	background-image: linear-gradient(#F6E1E8, #C53E6C, #615A9E);
+	border: 1px solid #EEE;
 	display: flex;
 	flex-direction: column;
 }
@@ -91,9 +93,10 @@
 
 .ranking {
 	width: 368px;
-	height: 320px;
+	height: 290px;
 	background-color: #FFFFFF;
 	margin: 4px 3px 0px 3px;
+	
 }
 
 
@@ -101,7 +104,7 @@
 	width: 357.83px;
 	height: 40px;
 	display: flex;
-	margin: 20px 8px;
+	margin: 15px 2px;
 }
 
 .ranking .info .img-order {
