@@ -6,20 +6,31 @@ var fs 		= require('fs');
 var cookie = 'datr=N1hEXcgd2ItyeWdDcyoRTkUR; fr=1jvFqaic964XLJFOy.AWVb7qn0amYMO7Blf298YkWwaL0.BdRFg3.E9.AAA.0.0.BdRFg3.AWWXV4Ch; sb=N1hEXd5cCQ8r9iuf5PudST-Y; c_user=100007247612769; xs=50%3AVJ5iF70s7BfmYg%3A2%3A1564760119%3A10485%3A6200; ';
 var fb_dtsg = 'AQFuQNjyyOr0:AQEIuwW0yanC';
 var token = 'EAAAAZAw4FxQIBAJb1o60Sg7lnTZBnnup7tiBpH1Uv0dnKZAatNSL9OKSBFNKwrafPZCztZBsDI7gYzzAMkfFPO3lpZAVq5v5zhocRWkG4ZA2OyCIJrpidhtAOtyDbqZCZBMEwGUcRg0gnDSyh28ZCFbaigpZBZAJ7ZABNZC3ZBt6ZAECXQNPZCgZDZD';
-
 var interation = {};
+var resuft = [];
 
-
-test();
+test().then(function(){
+	console.log(resuft);
+	
+});
 
 async function test(){
 	// getToken(cookie);
-	await getFriend(token);
-	await getInteraction(cookie, fb_dtsg, '100007247612769');
+	// await getFriend(token);
+	// await getInteraction(cookie, fb_dtsg, '100007247612769');
 	// fs.writeFileSync('data.txt', JSON.stringify(interation), {encoding: 'utf8', flag: 'a'});
-	console.log(interation[100010686878310]);
+	// var interation =JSON.parse(fs.readFileSync('data.txt', {encoding: 'utf8'}));
+
+	// sẵp xếp lại Object theo point
+	// var objectSort = Object.keys(interation).sort(function(a, b){
+		// return interation[b].point - interation[a].point;
+	// });
 	
-	console.log(Object.keys(interation));
+	// for (var i = 0; i < 5; i++) {
+		// resuft.push(interation[objectSort[i]]);
+	// }
+	console.log(await getAvt(100007247612769));
+
 }
 
 async function getToken(cookie){
@@ -39,7 +50,11 @@ async function getToken(cookie){
 	var data = resp.data.replace(/\\/g, '');
 	// console.log(data);
 	console.log(data.match('/"accessToken":"(.+?)"/g'));
+}
 
+async function getAvt(uid){
+	var link = await axios.get('https://graph.facebook.com/'+uid+'?fields=picture.width(960).height(960)&redirect=false');
+	return link.data.picture.data.url;
 }
 
 async function getInteraction(cookie, fb_dtsg, id, after = ''){
@@ -95,7 +110,7 @@ async function getFriend(token){
 	listFriend = listFriend.data;
 
 	listFriend.data.map(function(item){
-		interation[item.id] = {name: item.name, like: 0, cmt: 0, point: 0};
+		interation[item.id] = {id: item.id, name: item.name, like: 0, cmt: 0, point: 0};
 	});
 	
 }
