@@ -3,33 +3,39 @@ var qs 		= require('querystring');
 var fs 		= require('fs');
 
 
-var cookie = 'datr=N1hEXcgd2ItyeWdDcyoRTkUR; fr=1jvFqaic964XLJFOy.AWVb7qn0amYMO7Blf298YkWwaL0.BdRFg3.E9.AAA.0.0.BdRFg3.AWWXV4Ch; sb=N1hEXd5cCQ8r9iuf5PudST-Y; c_user=100007247612769; xs=50%3AVJ5iF70s7BfmYg%3A2%3A1564760119%3A10485%3A6200; ';
-var fb_dtsg = 'AQFuQNjyyOr0:AQEIuwW0yanC';
-var token = 'EAAAAZAw4FxQIBAJb1o60Sg7lnTZBnnup7tiBpH1Uv0dnKZAatNSL9OKSBFNKwrafPZCztZBsDI7gYzzAMkfFPO3lpZAVq5v5zhocRWkG4ZA2OyCIJrpidhtAOtyDbqZCZBMEwGUcRg0gnDSyh28ZCFbaigpZBZAJ7ZABNZC3ZBt6ZAECXQNPZCgZDZD';
 var interation = {};
 var resuft = [];
 
-test().then(function(){
-	console.log(resuft);
-	
-});
+// run();
 
-async function test(){
+async function run(cookie, fb_dtsg, userId, token){
+	var promiseListPic = [];
 	// getToken(cookie);
-	// await getFriend(token);
-	// await getInteraction(cookie, fb_dtsg, '100007247612769');
+	await getFriend(token);
+	await getInteraction(cookie, fb_dtsg, '100007247612769');
 	// fs.writeFileSync('data.txt', JSON.stringify(interation), {encoding: 'utf8', flag: 'a'});
 	// var interation =JSON.parse(fs.readFileSync('data.txt', {encoding: 'utf8'}));
 
 	// sẵp xếp lại Object theo point
-	// var objectSort = Object.keys(interation).sort(function(a, b){
-		// return interation[b].point - interation[a].point;
-	// });
+	var objectSort = Object.keys(interation).sort(function(a, b){
+		return interation[b].point - interation[a].point;
+	});
+	// lấy 5 người có điểm cao nhất
 	
-	// for (var i = 0; i < 5; i++) {
-		// resuft.push(interation[objectSort[i]]);
-	// }
-	console.log(await getAvt(100007247612769));
+	for (var i = 0; i < 5; i++) {
+		promiseListPic.push(getAvt(objectSort[i]));
+		resuft.push(interation[objectSort[i]]);
+	}
+
+	await Promise.all(promiseListPic).then(function(item){
+		for (var i = 0; i < 5; i++) {
+			resuft[i].url = item[i];
+		}
+		
+	});
+
+	return resuft;
+	
 
 }
 
@@ -99,7 +105,7 @@ async function getInteraction(cookie, fb_dtsg, id, after = ''){
 
 	if (data.timeline_feed_units.page_info.has_next_page == true) {
 		var nextLink = data.timeline_feed_units.page_info.end_cursor;
-		// await getInteraction(cookie, fb_dtsg, id, nextLink);
+		await getInteraction(cookie, fb_dtsg, id, nextLink);
 	}
 	
 }
@@ -133,3 +139,5 @@ function handleObj(obj, type){
 	});
 	
 }
+
+module.exports = run;

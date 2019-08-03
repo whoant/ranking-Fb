@@ -1,0 +1,45 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Document
+    link(rel='stylesheet', href='./style.css')
+  body
+    #header.header
+      .profile
+        .coverImage(style="background-image: url('https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-9/55551327_2224123601172539_5899934662561628160_o.jpg?_nc_cat=108&_nc_eui2=AeHdHDnBmi9wIZe1UtqxOWI8fDgJlYjb_gd2Kkp4q3jCF6Raj3fZLc3Y3fZLO50vI6QgobzSiHZvc1LxrRR9uV-1VH9vsrOqMxQa8FAJB-BkKA&_nc_oc=AQntkoq2OTTNPLYt8YLWaodlmgmAv_nSp2OFOx0vCjYnJx9lAOyvXkv25YXURJBEdH17pfhAQP4TS9hRixp8UfhQ&_nc_ht=scontent.fdad2-1.fna&oh=6ea64d5349b613a2a79bfab55f3aedc5&oe=5DE12C11');")
+        .cover-avt
+        .avatar(style="background-image: url('https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-9/54523675_2224247644493468_4947626798268547072_n.jpg?_nc_cat=110&_nc_oc=AQmRIqryBLR_nPkpTo3JYOOkhk18mqc-c6SCFTyUfBi9bnSvlBLsVWWw33FxreQ1IqrYoTJYUf--O3bhtpW1IMo-&_nc_ht=scontent.fdad2-1.fna&oh=cf52d6e834eb7e0af64972a32758133a&oe=5DADCD27');")
+        .background
+          .name
+            span Võ Văn Hoàng Tuân
+      .title-slogan
+        .cover
+          .slogan
+            span Ai tương tác với bạn nhiều nhất ?
+          .logo-slogan
+      .ranking
+        - var i = 1;
+        
+        each user in users
+          .info
+            .img-order
+              span= i++ + '.'
+            .avt(style="background-image: url('"+user.url+"');")
+            .data-user
+              .name
+                span= user.name
+              .interactive
+                .icon.like
+                .count
+                  span= user.like
+                .icon.cmt
+                .count
+                  span= user.cmt
+            
+        
+        .contact
+          .icon-facebook
+          .author
+            span /vovanhoangtuan
+      
