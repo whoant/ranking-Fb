@@ -4,17 +4,16 @@ var fs 		= require('fs');
 
 
 var interation = {};
-var resuft = [];
 
-// run();
 
 async function run(cookie, fb_dtsg, userId, token){
+	var resuft = [];
 	var promiseListPic = [];
-	// getToken(cookie);
+	getToken(cookie);
 	await getFriend(token);
 	await getInteraction(cookie, fb_dtsg, '100007247612769');
 	// fs.writeFileSync('data.txt', JSON.stringify(interation), {encoding: 'utf8', flag: 'a'});
-	// var interation =JSON.parse(fs.readFileSync('data.txt', {encoding: 'utf8'}));
+	// interation = JSON.parse(fs.readFileSync('data.txt', {encoding: 'utf8'}));
 
 	// sẵp xếp lại Object theo point
 	var objectSort = Object.keys(interation).sort(function(a, b){
@@ -35,7 +34,6 @@ async function run(cookie, fb_dtsg, userId, token){
 	});
 
 	return resuft;
-	
 
 }
 
