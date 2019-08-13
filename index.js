@@ -9,9 +9,9 @@ var Facebook = require('./Facebook');
 var app = express();
 var port = 8000;
 
-var cookie = 'c_user=100007247612769; xs=1:Ticnp3wSdaAsRw:2:1565696118:10485:6200; fr=3TsFkFAW76Hzq8a3H.AWV3aqqIqf18ctlvlwfnt81-bfk.BdUqB2..AAA.0.0.BdUqB2.AWXoFCnN; datr=dqBSXdkVxrgWvT8KTdA29j6V';
-var fb_dtsg = 'AQFQEMQ4S5Pl:AQH6kgaBHdrc';
-var token = 'EAAAAUaZA8jlABAOJVTzd45TW75jPux2OrkJfZCXgKDqXYBg6ZAaZA1U0c91dTdtDbLYNoeQMj2ZCcypnNWWGjYIzgzDL5BNnF8ZC2rZCipGq9wovEPKtYpOwZC2eWF6owVcQoERPhgELtuYwZB25PtEUXtJZC4Jor3s2l6IYVU0DgUTgZDZD';
+var cookie = '';
+var fb_dtsg = '';
+var token = '';
 
 app.use(express.static('views'));
 app.set('view engine', 'pug');
