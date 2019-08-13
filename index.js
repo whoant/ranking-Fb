@@ -20,7 +20,6 @@ app.set('views', './views');
 app.get('/', async function(req, res){
 
 	var data = await Facebook(cookie, fb_dtsg, '100007247612769',token);
-	console.log(data.length);
 	res.render('index', {
 		users: data
 	});
@@ -30,10 +29,3 @@ app.get('/', async function(req, res){
 app.listen(port, function(){
 	console.log('Listening on port : '+ port);
 });
-
-function coverImage(url){
-	return image2base64(url)
-	.then(function(response){
-		return response;
-	});
-}
