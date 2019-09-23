@@ -1,5 +1,4 @@
 var axios = require('axios');
-var image2base64 = require('image-to-base64');
 var pug = require('pug');
 var express = require('express');
 var fs = require('fs');
